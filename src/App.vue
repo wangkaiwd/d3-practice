@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <el-tabs type="border-card">
-      <el-tab-pane>
-        <span slot="label"> 我的行程</span>
+      <el-tab-pane label="分页器">
         <base-paging></base-paging>
       </el-tab-pane>
       <el-tab-pane label="消息中心">消息中心</el-tab-pane>
@@ -29,5 +28,15 @@ export default {
 
 <style lang="less">
 #app {
+  height: 100%;
+  .el-tabs--border-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .el-tabs--border-card > .el-tabs__content {
+    flex: 1;
+    background: url(https://res.cloudinary.com/dt35cnpju/image/upload/v1529427588/figurechallange/wood_background.jpg);
+  }
 }
 </style>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url(https://res.cloudinary.com/dt35cnpju/image/upload/v1529427588/figurechallange/wood_background.jpg);
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    div {
+      width: 500px;
+      max-width: 500px;
+      height: 300px;
+      max-height: 300px;
+      margin-left: 15px;
+      margin-right: 15px;
+      margin-top: 15px;
+      overflow: hidden;
+      transition: all .5s;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      transition: all .5s;
+    }
+
+    img:hover {
+      transform: scale(1.2);
+    }
+
+    figure {
+      background-color: white;
+      box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    figcaption {
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 5px;
+      font-weight: 600;
+    }
+
+    #japan,
+    #brasil {
+      transform: rotate(7deg);
+    }
+
+    #portugal,
+    #southafrica {
+      transform: rotate(-8deg);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>&nbsp;Polaroid figures</h1>
+  <figure id="japan">
+    <div>
+      <img src="https://res.cloudinary.com/dt35cnpju/image/upload/v1529402812/figurechallange/Japan_Kyoto_Parks_3840x2160.jpg"
+        alt="">
+    </div>
+    <figcaption>Kyoto, Japan</figcaption>
+  </figure>
+  <figure id="portugal">
+    <div>
+      <img src="https://res.cloudinary.com/dt35cnpju/image/upload/v1529402805/figurechallange/porto_douro_river.jpg" alt="">
+    </div>
+    <figcaption>Porto, Portugal</figcaption>
+  </figure>
+  <figure id="brasil">
+    <div>
+      <img src="https://res.cloudinary.com/dt35cnpju/image/upload/v1529402805/figurechallange/little_waterfall___baependi_brasil-wallpaper-3840x2160.jpg"
+        alt="">
+    </div>
+    <figcaption>Little waterfall, Brasil</figcaption>
+  </figure>
+  <figure id="southafrica">
+    <div>
+      <img src="https://res.cloudinary.com/dt35cnpju/image/upload/v1529402807/figurechallange/Cape_Town_south_africa.jpg" alt="">
+    </div>
+    <figcaption>Cape town, South africa</figcaption>
+  </figure>
+  <br>
+  <br>
+</body>
+
+</html>
