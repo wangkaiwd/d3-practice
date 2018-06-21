@@ -9,7 +9,7 @@
       <div class="fenye-center">
         <div
           class="fenye-left fenye-button"
-          @click="prev"
+          @click="handleClick(-1)"
         >
           <i class="el-icon-arrow-left"></i>
         </div>
@@ -20,13 +20,13 @@
           :class="['fenye-button',{active:currentPage===k},{dot:k==='...'}]"
           v-for="(k,i) in pages"
           :key="i"
-          @click="handleClick(k)"
+          @click="handleClick(0,k)"
         >
           {{k}}
         </p>
         <div
           class="fenye-right fenye-button"
-          @click="next"
+          @click="handleClick(1)"
         >
           <i class="el-icon-arrow-right"></i>
         </div>
@@ -41,59 +41,87 @@
  *  1. 当前页码<=5时，倒数第二个页码为...，首页和尾页保留
  *  2. 当前页码是最后5个时，第二个页码为...,首页和尾页保留
  *  3. 当前页码在前5个和后5个之间，第二个页码和倒数第二个页码为...,首页和尾页保留
+ * FIXME:
+ *  1. 对应的计算属性返回的数组有没有更简单的实现方法，或者实现一个可配置的展示页数
+ *  2. 传入对应的参数： 1. total,currentPage,pages
  */
 export default {
   name: "HelloWorld",
+  // 如果要进行数据类型的配置，传入的是一个对象
+  props: {
+    total: {
+      type: Number,
+      default: 10
+    },
+    pageSize: {
+      type: Number,
+      default: 5
+    },
+    currentPage: {
+      type: Number,
+      default: 1
+    }
+  },
   data() {
-    return {
-      total: 10,
-      currentPage: 1
-    };
+    return {};
   },
   methods: {
-    // 点击按钮
-    handleClick(val) {
-      if (val === "...") return;
-      this.currentPage = val;
-    },
-    // 前一个
-    prev() {
-      if (this.currentPage <= 1) return alert("已经是第一页了!!");
-      this.currentPage--;
-    },
-    // 后一个
-    next() {
-      if (this.currentPage >= this.total) return alert("已经是最后一页了!!");
-      this.currentPage++;
+    /**
+     * 点击事件的处理：
+     *  @param {Number} type :  1:下一页，-1：前一页，0：跳转到点击的页数
+     *  @param {Number || String} val: 当前页码对应的内容（可能是数字或...）
+     */
+    handleClick(type, val) {
+      switch (type) {
+        case 1:
+          const nextPage = this.currentPage + 1;
+          if (nextPage > this.count) return alert("已经是最后一页了");
+          this.$emit("change", nextPage);
+          break;
+        case -1:
+          const prevPage = this.currentPage - 1;
+          if (prevPage < 1) return alert("已经是第一页了");
+          this.$emit("change", prevPage);
+          break;
+        case 0:
+          if (val === "...") return;
+          this.$emit("change", val);
+          break;
+        default:
+          break;
+      }
     }
   },
   computed: {
+    count() {
+      return this.total / this.pageSize;
+    },
     // 显示按钮存储的一个数组
     pages() {
-      const t = this.total;
+      const p = this.count;
       const c = this.currentPage;
-      if (t <= 11) {
-        return t;
+      if (this.count <= 11) {
+        return p;
       }
       if (c <= 5) {
         return [1, 2, 3, 4, 5, 6, 7, 8, 9, "...", 10];
       }
-      if (c > t - 5) {
+      if (c > p - 5) {
         return [
           1,
           "...",
-          t - 8,
-          t - 7,
-          t - 6,
-          t - 5,
-          t - 4,
-          t - 3,
-          t - 2,
-          t - 1,
-          t
+          p - 8,
+          p - 7,
+          p - 6,
+          p - 5,
+          p - 4,
+          p - 3,
+          p - 2,
+          p - 1,
+          p
         ];
       }
-      if (c > 5 && c <= t - 5) {
+      if (c > 5 && c <= p - 5) {
         return [
           1,
           "...",
@@ -105,7 +133,7 @@ export default {
           c + 2,
           c + 3,
           "...",
-          t
+          p
         ];
       }
     }

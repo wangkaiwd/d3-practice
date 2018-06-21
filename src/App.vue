@@ -2,7 +2,13 @@
   <div id="app">
     <el-tabs type="border-card">
       <el-tab-pane label="分页器">
-        <base-paging></base-paging>
+        <base-paging
+          :total="total"
+          :pageSize="pageSize"
+          :currentPage="currentPage"
+          @change="change"
+        >
+        </base-paging>
       </el-tab-pane>
       <el-tab-pane label="消息中心">消息中心</el-tab-pane>
       <el-tab-pane label="角色管理">角色管理</el-tab-pane>
@@ -20,8 +26,20 @@ export default {
   // 2. 便于调试，有名字的组件有更友好的警告信息
   // 3. 当在有vue-devtools,未命名组件将显示成<AnonymousComponent>,很没有语义，通过name选项，可以获得更有语义信息的组件树
   name: "App",
+  data() {
+    return {
+      total: 100,
+      pageSize: 5,
+      currentPage: 1
+    };
+  },
   components: {
     BasePaging
+  },
+  methods: {
+    change(val) {
+      this.currentPage = val;
+    }
   }
 };
 </script>
