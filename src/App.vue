@@ -36,7 +36,6 @@ export default {
   }
   .el-tabs--border-card > .el-tabs__content {
     flex: 1;
-    background: url(https://res.cloudinary.com/dt35cnpju/image/upload/v1529427588/figurechallange/wood_background.jpg);
   }
 }
 </style>
