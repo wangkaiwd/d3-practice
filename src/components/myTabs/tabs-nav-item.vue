@@ -1,18 +1,35 @@
 <template>
-  <div class="tabs-nav-item">
+  <div class="tabs-nav-item" :class="{active}">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "TabsNavItem"
+  name: "TabsNavItem",
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  },
+  data() {
+    return {
+      active: false
+    };
+  },
+  watch: {},
+  mounted() {
+    // this.active = this.name === this.selected;
+  }
 };
 </script>
 
 <style lang="less" scoped>
 .tabs-nav-item {
   padding: 6px 10px;
-  border: 1px solid red;
+  &.active {
+    background-color: red;
+  }
 }
 </style>

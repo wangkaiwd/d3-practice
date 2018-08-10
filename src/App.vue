@@ -2,13 +2,25 @@
   <div id="app">
     <el-tabs type="border-card">
       <el-tab-pane label="分页器">
-        <base-paging
+        <!-- <base-paging
           :total="total"
           :pageSize="pageSize"
           :currentPage="currentPage"
           @change="change"
         >
-        </base-paging>
+        </base-paging> -->
+        <my-tabs selected="woman">
+          <tabs-nav>
+            <tabs-nav-item name="woman">美女</tabs-nav-item>
+            <tabs-nav-item name="phone">手机</tabs-nav-item>
+            <tabs-nav-item name="digit">数码</tabs-nav-item>
+          </tabs-nav>
+          <tabs-content>
+            <tabs-content-pane name="woman">美女相关咨讯</tabs-content-pane>
+            <tabs-content-pane name="phone">手机相关咨讯</tabs-content-pane>
+            <tabs-content-pane name="digit">数码相关咨讯</tabs-content-pane>
+          </tabs-content>
+        </my-tabs>
       </el-tab-pane>
       <el-tab-pane label="倒计时">
         <base-timeout></base-timeout>
@@ -26,18 +38,6 @@
         <base-select></base-select>
       </el-tab-pane>
       <el-tab-pane label="父子爷的亲密接触">
-        <my-tabs>
-          <tabs-nav>
-            <tabs-nav-item name="woman">美女</tabs-nav-item>
-            <tabs-nav-item name="phone">手机</tabs-nav-item>
-            <tabs-nav-item name="digit">数码</tabs-nav-item>
-          </tabs-nav>
-          <tabs-content>
-            <tabs-content-pane name="woman">美女相关咨讯</tabs-content-pane>
-            <tabs-content-pane name="phone">手机相关咨讯</tabs-content-pane>
-            <tabs-content-pane name="digit">数码相关咨讯</tabs-content-pane>
-          </tabs-content>
-        </my-tabs>
       </el-tab-pane>
     </el-tabs>
   </div>
