@@ -17,6 +17,11 @@ export default {
   mounted() {
     this.$children[0].$children.forEach(vm => {
       vm.selected = this.selected;
+      vm.active = vm.name === vm.selected;
+    });
+    this.$children[1].$children.forEach(vm => {
+      vm.selected = this.selected;
+      vm.active = vm.name === vm.selected;
     });
   }
 };

@@ -1,12 +1,23 @@
 <template>
-  <div class="tabs-content-pane">
+  <div class="tabs-content-pane" v-show="active">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "TabsContentPane"
+  name: "TabsContentPane",
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  },
+  data() {
+    return {
+      active: false
+    };
+  }
 };
 </script>
 

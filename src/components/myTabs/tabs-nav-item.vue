@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-nav-item" :class="{active}">
+  <div class="tabs-nav-item" :class="{active}" @click="changeItem">
     <slot></slot>
   </div>
 </template>
@@ -18,9 +18,10 @@ export default {
       active: false
     };
   },
-  watch: {},
-  mounted() {
-    // this.active = this.name === this.selected;
+  methods: {
+    changeItem() {
+      this.$parent.$parent.selected = this.name;
+    }
   }
 };
 </script>
