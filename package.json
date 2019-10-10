@@ -5,6 +5,8 @@
   "repository": "git@github.com:wangkaiwd/d3-practice.git",
   "author": "wangkaiwd <1162486176@qq.com>",
   "license": "MIT",
+  "scripts": {
+  },
   "dependencies": {
     "d3": "^5.12.0",
     "typescript": "^3.6.3"
