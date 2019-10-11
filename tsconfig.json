@@ -71,6 +71,6 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
   },
   "include": [
-    "./01/demo01.ts"
+    "./01/demo03.ts"
   ]
 }
