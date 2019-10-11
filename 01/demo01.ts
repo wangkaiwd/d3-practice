@@ -40,11 +40,40 @@
 // common use combination: selectAll + data + enter + append
 
 // use a svg dynamic create circle what the number of it correspond of data
+// const svg = d3.select('svg');
+// svg.selectAll('circle')
+//   .data([32, 57, 112, 293])
+//   .enter().append('circle')
+//   .attr('cy', 60)
+//   .attr('cx', (d, i) => i * 100 + 30)
+//   .attr('r', d => Math.sqrt(d));
+
+// exit
+// const svg = d3.select('svg');
+//
+// svg.selectAll('circle')
+//   .data([32, 57, 112, 293])
+//   .enter().append('circle')
+//   .attr('cy', 60)
+//   .attr('cx', (d, i) => i * 100 + 30)
+//   .attr('r', d => Math.sqrt(d));
+//
+// const circle = svg.selectAll('circle').data([32, 57]);
+//
+// circle.exit().remove();
+
+// control precisely
 const svg = d3.select('svg');
 
-svg.selectAll('circle')
-  .data([32, 57, 112, 293])
-  .enter().append('circle')
+// 这里泛型不指定any会报错，原因没有找到
+const circle = svg.selectAll('circle')
+  .data<any>([32, 57, 293, 84], d => d);
+
+circle.enter().append('circle')
   .attr('cy', 60)
-  .attr('cx', (d, i) => i * 100 + 30)
-  .attr('r', d => Math.sqrt(d));
+  .attr('cx', (d: number, i: number) => {
+    return i * 100 + 30;
+  })
+  .attr('r', (d: number) => Math.sqrt(d));
+
+circle.exit().remove();
