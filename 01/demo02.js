@@ -68,6 +68,11 @@ const rightEyebrow = eyebrowsG
   .attr('width', eyebrowWidth)
   .attr('height', eyebrowHeight);
 
+// path: 用来定义形状的通用元素。所有的基本形状都可以用path元素来创建
+// d: 该属性定义了一个路径
+
+// d3.arc(): 根据指定的数据生成环
+
 const mouth = g
   .append('path')
   .attr('d', arc()({
