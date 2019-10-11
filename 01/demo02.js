@@ -52,10 +52,10 @@ eyebrowsG
   .attr('transform', `translate(0, ${eyebrowYOffset})`);
 
 // rect: SVG的一个基本形状，用来创建矩形，基于一个角位置以及它的宽和高。它还可以用来创建圆角矩形
-// rx:
-// ry:
-// x:
-// y:
+// rx: 水平轴向的圆角半径尺寸
+// ry: 垂直轴向的圆角半径尺寸
+// x: x轴坐标
+// y: y轴坐标
 const leftEyebrow = eyebrowsG
   .append('rect')
   .attr('x', -eyeSpacing - eyebrowWidth / 2)
