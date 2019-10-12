@@ -29,6 +29,7 @@
 * `stroke`: 给定图形元素的外轮廓的颜色。默认值是`none`
 * `stroke-width`: 指定当前对象的轮廓的宽度。默认值是1
 * `viewBox`: 包含4个参数的列表`min-x`,`min-y`,`width`和`height`，以空格或逗号分开(`viewBox="0 0 100 100"`)
+* `transform`: 平移(和`css`中的`transform`意思类似，但是细节差别挺大)
 
 ### `d3`的`api`
 * `d3.arc`: 根据指定数据生成环
